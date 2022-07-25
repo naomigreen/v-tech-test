@@ -12,13 +12,13 @@ type NumberProps = {
   required?: boolean
 }
 
-export const NumberComponent = (props: NumberProps) => {
+export const NumberComponent = ({ id, label, name, min, max, value, required }: NumberProps) => {
   return (
     <div className={styles['number-component']}>
-      <label for={props?.id}>
-        { props?.label }
+      <label for={id}>
+        {label}
       </label>
-      <input type="number" name={props?.name} id={props?.id} min={props?.min} max={props?.max} value={props?.value} required={props?.required} />
+      <input type="number" name={name} id={id} min={min} max={max} value={value} required={required} />
     </div>
   );
 };

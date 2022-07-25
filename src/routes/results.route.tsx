@@ -1,12 +1,22 @@
+/** @jsx h */
 import { h, JSX } from 'preact'
+import { DateTime } from 'luxon';
 import { useRouter } from "preact-router";
-import { useEffect } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
+import * as styles from './results.module.less';
+import CardList from '../components/cardList.component';
+import FetchHandles from '../components/fetchHandles.component';
+import FilterComponent from '../components/filter.component';
 import SearchComponent from '../components/search.component';
 import { doRequest } from '../services/http.service';
 import { BookingRequest, BookingResponse } from '../types/booking';
-import { DateTime } from 'luxon';
 
 export default function ResultsRoute(): JSX.Element {
+    const [data, setData] = useState({} as any)
+    const [defaultResults, setDefaultResults] = useState({} as any)
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [noResults, setNoResults] = useState(false);
     const [searchParams] = useRouter();
 
     useEffect(() => {
@@ -25,20 +35,30 @@ export default function ResultsRoute(): JSX.Element {
                 }
             ]
         }
-
+        setLoading(true)
         doRequest('POST', '/cjs-search-api/search', requestBody)
             .then((response: unknown | BookingResponse) => {
-                // Results are loaded here
-                console.log(response)
-            })
+                setData(response?.holidays)
+                setDefaultResults(response?.holidays)
+                setLoading(false)
+            }).catch(error => setError(error))
     }, [searchParams])
 
-
     return (
-        <section>
-            <SearchComponent />
-
-            <h1>Results should display here.</h1>
-        </section>
+        <div>
+            <section>
+                <SearchComponent />
+            </section>
+            <FetchHandles loading={loading} error={error} />
+            {!loading && <main className={styles['main-content']}>
+                <aside>
+                    <FilterComponent setData={setData} setNoResults={setNoResults} data={data} defaultResults={defaultResults.length && defaultResults} />
+                </aside>
+                <section>
+                    <h1>{data.length} holidays found</h1>
+                    {noResults ? <p>Unselect some of your filters to see more results </p> : <CardList data={data.length && data} />}
+                </section>
+            </main>}
+        </div>
     )
 }

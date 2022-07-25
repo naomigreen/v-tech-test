@@ -1,0 +1,9 @@
+export { default as one } from './ratings/rating-1.png';
+export { default as onePlus } from './ratings/rating-1-plus.png';
+export { default as two } from './ratings/rating-2.png';
+export { default as twoPlus } from './ratings/rating-2-plus.png';
+export { default as three } from './ratings/rating-3.png';
+export { default as threePlus } from './ratings/rating-3-plus.png';
+export { default as four } from './ratings/rating-4.png';
+export { default as fourPlus } from './ratings/rating-4-plus.png';
+export { default as five } from './ratings/rating-5.png';

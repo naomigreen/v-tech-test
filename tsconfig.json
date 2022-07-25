@@ -10,15 +10,10 @@
     "esModuleInterop": true,
     "module": "esnext",
     "target": "es5",
-    "lib": [
-      "dom",
-      "es6"
-    ],
-    "types": [
-      "node",
-      "jest"
-    ],
+    "lib": ["dom", "es6"],
+    "types": ["node", "jest"],
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": ["src/main/**/*.tsx", "external.d.ts", "global.d.ts"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules", "src/assets/images/index.ts"]
 }

@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/virginatlanticdevelopment/front-end-test.git"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {

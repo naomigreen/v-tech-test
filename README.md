@@ -48,10 +48,11 @@ If all conditions are removed, the origin search results is return.
 If no results are available, the user is informed to remove some of the filters.
 
 Given more time I would:
-Fix the image import issues that are breaking unit tests.
-Create a nav bar that would display filter and search components on tablet and mobile
-Add image carousel to cards
-Add hide/display dropdown on filter list
-Add home page promo cards
-Add loading image slide show
-Add different result layouts
+
+1. Fix the image import issues that are breaking unit tests.
+1. Create a nav bar that would display filter and search components on tablet and mobile
+1. Add image carousel to cards
+1. Add hide/display dropdown on filter list
+1. Add home page promo cards
+1. Add loading image slide show
+1. Add different result layouts

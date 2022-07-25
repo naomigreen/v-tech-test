@@ -5,15 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel serve src/index.html --https",
-    "test": "jest --config jest.config.js",
-    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "test": "jest --config jest.config.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/virginatlanticdevelopment/front-end-test.git"
-  },
-  "engines": {
-    "node": "14.x"
   },
   "author": "",
   "license": "ISC",
